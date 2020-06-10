@@ -26,7 +26,7 @@ exports.reduceInheritanceChain = reduceInheritanceChain;
 
 /**
  * takes an object and reduces its prototype chain with
- * a given callback
+ * a given callback fn
  *
  * @param  {Object}    instance to be reduced
  * @param  {Reducer}   reducer  function
