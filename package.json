@@ -1,0 +1,46 @@
+{
+  "name": "reduce-prototype",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {},
+  "contributors": [],
+  "devDependencies": {
+    "0x": "^4.9.1",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-decorators": "^7.10.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.1",
+    "@babel/register": "^7.10.1",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-plugin-loop-optimizer": "^1.4.1",
+    "babel-plugin-tailcall-optimization": "^2.0.0",
+    "babel-preset-env": "^1.7.0",
+    "benchmark": "^2.1.4",
+    "chai": "^4.2.0",
+    "chai-exclude": "^2.0.2",
+    "eslint": "^7.1.0",
+    "haikunator": "^2.1.2",
+    "mocha": "^7.2.0",
+    "npm-add-engines": "^2.0.1",
+    "nyc": "^15.1.0",
+    "sinon": "^9.0.2",
+    "source-map-support": "^0.5.19"
+  },
+  "bin": {
+    "test": "bin/test",
+    "test2": "bin/test2"
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=2"
+  }
+}
