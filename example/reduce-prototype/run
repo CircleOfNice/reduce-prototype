@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+"use strict";
+
+var _index = _interopRequireDefault(require("../../index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log("reduce-prototype-example", _index.default);

@@ -50,7 +50,10 @@
     "sinon": "^9.0.2",
     "source-map-support": "^0.5.19"
   },
-  "bin": {},
+  "bin": {
+    "test": "bin/test",
+    "test2": "bin/test2"
+  },
   "engines": {
     "node": ">=4",
     "npm": ">=2"

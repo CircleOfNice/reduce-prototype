@@ -1,3 +1,11 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.reducePrototypeChain = reducePrototypeChain;
+exports.reduceInheritanceChain = reduceInheritanceChain;
+
 /*
  * This file is part of ReducePrototype.
  *
@@ -16,10 +24,6 @@
  * Copyright 2017 CRCL UG (haftungsbeschränkt)
  */
 
-// @flow
-
-export type Reducer = (dest: *, proto: Object, instance: Object) => *;
-
 /**
  * takes an object and reduces its prototype chain with
  * a given callback
@@ -31,16 +35,28 @@ export type Reducer = (dest: *, proto: Object, instance: Object) => *;
  * @return {*}
  */
 // eslint-disable-next-line
-export function reducePrototypeChain(instance: Object, reducer: Reducer, carry: any, stop?: Function = Object): any {
+function reducePrototypeChain(instance, reducer, carry, stop = Object) {
+  var _repeat = true;
+
+  var _instance, _reducer, _carry, _stop;
+
+  while (_repeat) {
+    _repeat = false;
     const proto = Object.getPrototypeOf(instance);
-
-    if(!proto || proto === stop.prototype) return carry;
-
+    if (!proto || proto === stop.prototype) return carry;
     const result = reducer(carry, proto, instance);
-
-    return reducePrototypeChain(proto, reducer, result, stop);
+    _instance = proto;
+    _reducer = reducer;
+    _carry = result;
+    _stop = stop;
+    instance = _instance;
+    reducer = _reducer;
+    carry = _carry;
+    stop = _stop;
+    _repeat = true;
+    continue;
+  }
 }
-
 /**
  * takes a class and reduces its prototype chain with
  * a given callback
@@ -52,6 +68,8 @@ export function reducePrototypeChain(instance: Object, reducer: Reducer, carry: 
  * @return {*}
  */
 // eslint-disable-next-line
-export function reduceInheritanceChain(constr: Function, reducer: Reducer, carry: any, stop?: Function = Object): any {
-    return reducePrototypeChain(Object.create(constr.prototype, {}), reducer, carry, stop);
+
+
+function reduceInheritanceChain(constr, reducer, carry, stop = Object) {
+  return reducePrototypeChain(Object.create(constr.prototype, {}), reducer, carry, stop);
 }
